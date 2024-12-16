@@ -36,8 +36,7 @@ export const fetchTodos = async (_query = ""): Promise<Todo[]> => {
 
   console.log("fetched todos");
 
-  // the tutorial doesn't implement a filter feature so I'm just going to 
-  // return the todos
+  // commented now as used for later (I was wrong before!)
   // const filteredTodos = todos.filter((todo) =>
   //   todo.title.toLowerCase().includes(query.toLowerCase())
   // );
@@ -53,7 +52,12 @@ export const fetchTodos = async (_query = ""): Promise<Todo[]> => {
  * Mock function that mimics adding a todo to a database.
  */
 export const addTodo = async (todo: Pick<Todo, "title">): Promise<Todo> => {
+  console.log('awaiting promise...');
+  
   await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  console.log('adding', todo);
+  
 
   const newTodo = {
     id: todos.length + 1,
@@ -63,6 +67,9 @@ export const addTodo = async (todo: Pick<Todo, "title">): Promise<Todo> => {
 
   // Todo is stored in memory and cleared on page reload
   todos.push(newTodo);
+
+  console.log('pushed todo', todo);
+  
 
   return newTodo;
 };

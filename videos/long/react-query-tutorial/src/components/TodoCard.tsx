@@ -9,13 +9,13 @@ export default function TodoCard({ todo }: TodoProps) {
   const [checked, setChecked] = useState(todo.completed);
 
   return (
-    <div>
+    <li>
       {todo.title}
       <input
         type="checkbox"
         checked={checked}
         onChange={(e) => setChecked(e.target.checked)}
       />
-    </div>
+    </li>
   );
 }
