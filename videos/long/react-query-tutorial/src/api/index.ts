@@ -1,4 +1,4 @@
-import { Todo } from "../entities/Todo";
+import { Todo } from "../types/Todo";
 
 const todos = [
   {
@@ -31,19 +31,22 @@ const todos = [
 /**
  * Mock function that mimics fetching todos from a database.
  */
-export const fetchTodos = async (query = ""): Promise<Todo[]> => {
+export const fetchTodos = async (_query = ""): Promise<Todo[]> => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   console.log("fetched todos");
 
-  const filteredTodos = todos.filter((todo) =>
-    todo.title.toLowerCase().includes(query.toLowerCase())
-  );
+  // the tutorial doesn't implement a filter feature so I'm just going to 
+  // return the todos
+  // const filteredTodos = todos.filter((todo) =>
+  //   todo.title.toLowerCase().includes(query.toLowerCase())
+  // );
 
   // Uncomment the line below to trigger an error
   // throw new Error();
 
-  return [...filteredTodos];
+  // return [...filteredTodos];
+  return [...todos]
 };
 
 /**
