@@ -1,5 +1,4 @@
 import React from 'react';
-import { User } from '.';
 import { Profile, Sidebar } from './Components';
 
 interface DashboardProps {

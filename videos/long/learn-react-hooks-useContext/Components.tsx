@@ -1,10 +1,11 @@
 import React from 'react';
-import { User } from '.';
+import { useUserContext } from './hooks/useUserContext';
 
 interface SidebarProps {
 }
 
 export function Sidebar({ }: SidebarProps) {
+  const user = useUserContext();
   return (
     <div>
       <div>{user.name}</div>
@@ -17,5 +18,6 @@ interface ProfileProps {
 }
 
 export function Profile({ }: ProfileProps) {
+  const user = useUserContext();
   return <div>{user.name}</div>;
 }
