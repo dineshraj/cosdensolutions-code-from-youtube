@@ -2,11 +2,9 @@ import React from 'react';
 import { User } from '.';
 
 interface SidebarProps {
-  user: User
 }
 
-export function Sidebar({ user }: SidebarProps) {
-
+export function Sidebar({ }: SidebarProps) {
   return (
     <div>
       <div>{user.name}</div>
@@ -16,10 +14,8 @@ export function Sidebar({ user }: SidebarProps) {
 }
 
 interface ProfileProps {
-  user: User
 }
 
-export function Profile({ user }: ProfileProps) {
-
+export function Profile({ }: ProfileProps) {
   return <div>{user.name}</div>;
 }

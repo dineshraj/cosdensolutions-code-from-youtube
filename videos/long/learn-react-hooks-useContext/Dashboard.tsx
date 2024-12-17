@@ -3,14 +3,13 @@ import { User } from '.';
 import { Profile, Sidebar } from './Components';
 
 interface DashboardProps {
-  user: User
 }
 
-export default function Dashboard({ user }: DashboardProps) {
+export default function Dashboard({ }: DashboardProps) {
   return (
     <div>
-      <Sidebar user={user} />
-      <Profile user={user} />
+      <Sidebar />
+      <Profile />
     </div>
   );
 }

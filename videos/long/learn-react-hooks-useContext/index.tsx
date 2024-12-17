@@ -17,7 +17,7 @@ export default function Demo({}: DemoProps) {
 
   return (
     <div>
-      <Dashboard user={user} />
+      <Dashboard />
     </div>
   );
 }
