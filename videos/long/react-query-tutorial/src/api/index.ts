@@ -31,21 +31,20 @@ const todos = [
 /**
  * Mock function that mimics fetching todos from a database.
  */
-export const fetchTodos = async (_query = ""): Promise<Todo[]> => {
+export const fetchTodos = async (query = ""): Promise<Todo[]> => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   console.log("fetched todos");
 
-  // commented now as used for later (I was wrong before!)
-  // const filteredTodos = todos.filter((todo) =>
-  //   todo.title.toLowerCase().includes(query.toLowerCase())
-  // );
+
+  const filteredTodos = todos.filter((todo) =>
+    todo.title.toLowerCase().includes(query.toLowerCase())
+  );
 
   // Uncomment the line below to trigger an error
   // throw new Error();
 
-  // return [...filteredTodos];
-  return [...todos]
+  return [...filteredTodos];
 };
 
 /**

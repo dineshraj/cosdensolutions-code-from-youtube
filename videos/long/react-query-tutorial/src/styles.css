@@ -1,0 +1,26 @@
+body {
+  text-align: center;
+  font-size: 20px;
+  font-family: helvetica, san-serif
+}
+
+ul {
+  list-style: none
+}
+
+input {
+  padding: 6px 12px;
+  margin: 4px;
+}
+
+button {
+  width: 150px;
+  padding: 6px 12px;
+  margin: 4px;
+}
+
+span {
+  display: inline-block;
+  width: 200px;
+  text-align: left;
+}

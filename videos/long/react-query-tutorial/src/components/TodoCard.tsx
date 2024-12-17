@@ -10,7 +10,7 @@ export default function TodoCard({ todo }: TodoProps) {
 
   return (
     <li>
-      {todo.title}
+      <span>{todo.title}</span>
       <input
         type="checkbox"
         checked={checked}
