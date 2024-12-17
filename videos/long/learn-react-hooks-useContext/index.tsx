@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-import { DashboardContext } from './context';
 import Dashboard from './Dashboard';
 
 export interface User {
@@ -18,9 +17,7 @@ export default function Demo({}: DemoProps) {
 
   return (
     <div>
-      <DashboardContext.Provider value={user}>
-        <Dashboard />
-      </DashboardContext.Provider>
+      <Dashboard user={user} />
     </div>
   );
 }

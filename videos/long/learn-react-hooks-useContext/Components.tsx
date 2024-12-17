@@ -1,9 +1,11 @@
-import { useUserContext } from './context';
+import React from 'react';
+import { User } from '.';
 
-interface SidebarProps {}
+interface SidebarProps {
+  user: User
+}
 
-export function Sidebar({}: SidebarProps) {
-  const user = useUserContext();
+export function Sidebar({ user }: SidebarProps) {
 
   return (
     <div>
@@ -13,10 +15,11 @@ export function Sidebar({}: SidebarProps) {
   );
 }
 
-interface ProfileProps {}
+interface ProfileProps {
+  user: User
+}
 
-export function Profile({}: ProfileProps) {
-  const user = useUserContext();
+export function Profile({ user }: ProfileProps) {
 
   return <div>{user.name}</div>;
 }

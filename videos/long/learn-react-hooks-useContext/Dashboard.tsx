@@ -1,12 +1,16 @@
+import React from 'react';
+import { User } from '.';
 import { Profile, Sidebar } from './Components';
 
-interface DashboardProps {}
+interface DashboardProps {
+  user: User
+}
 
-export default function Dashboard({}: DashboardProps) {
+export default function Dashboard({ user }: DashboardProps) {
   return (
     <div>
-      <Sidebar />
-      <Profile />
+      <Sidebar user={user} />
+      <Profile user={user} />
     </div>
   );
 }
