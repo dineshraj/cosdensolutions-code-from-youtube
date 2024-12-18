@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 
 interface SearchProps {
   onChange: (text: string) => void;

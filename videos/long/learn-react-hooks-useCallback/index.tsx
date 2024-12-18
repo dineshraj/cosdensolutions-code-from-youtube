@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 
 import { shuffle } from '@/utils';
 
@@ -17,17 +17,14 @@ interface DemoProps {}
 export default function Demo({}: DemoProps) {
   const [users, setUsers] = useState(allUsers);
 
-  const handleSearch = useCallback(
-    (text: string) => {
-      console.log(users[0]);
+  const handleSearch = (text: string) => {
+    console.log(users[0]);
 
-      const filteredUsers = allUsers.filter((user) =>
-        user.includes(text),
-      );
-      setUsers(filteredUsers);
-    },
-    [users],
-  );
+    const filteredUsers = allUsers.filter((user) =>
+      user.includes(text),
+    );
+    setUsers(filteredUsers);
+  };
 
   return (
     <div className='tutorial'>
@@ -43,6 +40,6 @@ export default function Demo({}: DemoProps) {
           <li key={user}>{user}</li>
         ))}
       </ul>
-    </div>
+    </div>``
   );
 }
