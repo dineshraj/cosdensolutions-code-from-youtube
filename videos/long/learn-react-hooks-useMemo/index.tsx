@@ -4,6 +4,13 @@ import { initialItems } from './utils';
 
 interface DemoProps {}
 
+
+/*
+ hypothesis: so every time the count changes it causes a rerender
+ which means that initialItems is re-executed
+ which is expensive because of the 29m+ array
+*/
+
 function Demo({}: DemoProps) {
   const [count, setCount] = useState(0);
   const [items] = useState(initialItems);
