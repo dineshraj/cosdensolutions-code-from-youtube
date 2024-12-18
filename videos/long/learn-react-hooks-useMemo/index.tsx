@@ -11,17 +11,18 @@ Hypothesis:
   which means that initialItems is re-executed
   which is expensive because of the 29m+ array
 
-WRONG
-  initialItems in use state is stored in state so is only called once
+I WAS WRONG
+  initialItems in a useState so it is stored in state and only called once
   The issue is that selectedItem keeps being called with a find on a 29m+
-  array each time the value is clicked, which is expensive
+  array each time the value is clicked, which is expensive (because of a 
+  re-render when the state changes)
 */
 
 function Demo({}: DemoProps) {
   const [count, setCount] = useState(0);
   const [items] = useState(initialItems);
 
-  // finds the selectedItem each re-render, but it is static so 
+  // selectedItem finds the selectedItem each re-render, but it is static so 
   // this is pointless and needs to be cached
   // in the dependancy array specify what it neeeds to listen to
   
