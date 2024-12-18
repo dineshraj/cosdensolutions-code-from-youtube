@@ -17,6 +17,15 @@ interface DemoProps {}
 export default function Demo({}: DemoProps) {
   const [users, setUsers] = useState(allUsers);
 
+
+  // this function is re-rendered each time
+  // which means that the onChange for <Search /> thinks its
+  // props have changed  (despite memo in <Search />)
+  // using useCallback prevents this
+  // so basically each time a user changes (shuffles in this case) it thinks a
+  // new search function has been made (coz of referencing) so it'll re-render that too
+  
+  // ask Chloe about NASA example
   const handleSearch = (text: string) => {
     console.log(users[0]);
 
