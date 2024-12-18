@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 
 import { initialItems } from './utils';
 
@@ -8,10 +8,7 @@ function Demo({}: DemoProps) {
   const [count, setCount] = useState(0);
   const [items] = useState(initialItems);
 
-  const selectedItem = useMemo(
-    () => items.find((item) => item.id === count),
-    [count, items],
-  );
+  const selectedItem = items.find((item) => item.selected)
 
   return (
     <div className='tutorial'>
