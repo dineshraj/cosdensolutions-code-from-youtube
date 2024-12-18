@@ -21,6 +21,8 @@ function Demo({}: DemoProps) {
   const [count, setCount] = useState(0);
   const [items] = useState(initialItems);
 
+  // finds the selectedItem each re-render, but it is static so 
+  // this is pointless and needs to be cached 
   const selectedItem = items.find((item) => item.selected)
 
   return (
