@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 import { initialItems } from './utils';
 
@@ -22,8 +22,18 @@ function Demo({}: DemoProps) {
   const [items] = useState(initialItems);
 
   // finds the selectedItem each re-render, but it is static so 
-  // this is pointless and needs to be cached 
-  const selectedItem = items.find((item) => item.selected)
+  // this is pointless and needs to be cached
+  // in the dependancy array specify what it neeeds to listen to
+  
+  // const selectedItem = items.find((item => item.isSelected); // OLD
+  const selectedItem = useMemo(() => items.find((item) => item.isSelected), [items]);
+
+  // Different example where we address the dynamic ID
+  // so the item we want is the one that is equal to the count
+  // doesn't work beacause it cache count because we haven't added it to the
+  // dependancy array
+  // const selectedItem = useMemo(() => items.find((item) => item.id === count), [items]); //wrong
+  // const selectedItem = useMemo(() => items.find((item) => item.id === count), [items, count]); //right
 
   return (
     <div className='tutorial'>
