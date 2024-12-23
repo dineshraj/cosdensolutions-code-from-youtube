@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback} from 'react';
 
 import { shuffle } from '@/utils';
 
@@ -24,16 +24,24 @@ export default function Demo({}: DemoProps) {
   // using useCallback prevents this
   // so basically each time a user changes (shuffles in this case) it thinks a
   // new search function has been made (coz of referencing) so it'll re-render that too
-  
-  // ask Chloe about NASA example
-  const handleSearch = (text: string) => {
-    console.log(users[0]);
+
+  // const handleSearch = (text: string) => {
+  //   console.log(users[0]);
+
+  //   const filteredUsers = allUsers.filter((user) =>
+  //     user.includes(text),
+  //   );  
+  //   setUsers(filteredUsers);
+  // };
+
+    const handleSearch = useCallback((text: string) => {
+      console.log(users[0]);
 
     const filteredUsers = allUsers.filter((user) =>
       user.includes(text),
     );
     setUsers(filteredUsers);
-  };
+  }, [users]);
 
   return (
     <div className='tutorial'>
@@ -49,6 +57,6 @@ export default function Demo({}: DemoProps) {
           <li key={user}>{user}</li>
         ))}
       </ul>
-    </div>``
+    </div>
   );
 }

@@ -15,5 +15,6 @@ function Search({ onChange }: SearchProps) {
     />
   );
 }
-// shallow search bruv (memo) so no objects or function refernces)
+
+// shallow search bruv (memo) so no objects or function references work as props)
 export default memo(Search);
