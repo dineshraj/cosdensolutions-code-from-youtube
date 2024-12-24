@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 interface DemoProps {}
 
 export default function Demo({}: DemoProps) {
   const [count, setCount] = useState(0);
+  const countRef = useRef(0)
 
   const handleIncrement = () => {
     setCount(count + 1);
+    countRef.current++;
 
     console.log("State:", count);
+    console.log('Ref', countRef.current);
   };
 
   return (
@@ -19,11 +22,16 @@ export default function Demo({}: DemoProps) {
   );
 }
 
-export function Demo2({}: DemoProps) {
+export function Demo2({ }: DemoProps) {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus()
+  }, []);
 
   return (
     <div className="tutorial">
-      <input type="text" placeholder="Type something..." />
+      <input ref={inputRef} type="text" placeholder="Type something..." />
     </div>
   );
 }
