@@ -44,6 +44,7 @@ export default function Demo( { filter, setFilter, submittedFilter, setSubmitted
   if (isLoading) return <p>Loading...</p> 
   if (isError) return <p>Error. Guess you messed up</p>
 
+  // Better to use useRef here rather than re-rendering on every input given that there is a button to submit
   return (
     <>
       <form role="form" onSubmit={filterTodos}>
