@@ -12,10 +12,11 @@ Hypothesis:
   which is expensive because of the 29m+ array
 
 I WAS WRONG
-  initialItems in a useState so it is stored in state and only called once
+  initialItems in in a useState initial value so it is stored in state and only set once
   The issue is that selectedItem keeps being called with a find on a 29m+
-  array each time the value is clicked, which is expensive (because of a 
-  re-render when the state changes)
+  array each time the Increment button is clicked, which is expensive (because of a 
+  re-render when the state changes). useMemo only lets this run when the items actually change
+  (which in this case it does not)
 */
 
 function Demo({}: DemoProps) {
@@ -31,10 +32,11 @@ function Demo({}: DemoProps) {
 
   // Different example where we address the dynamic ID
   // so the item we want is the one that is equal to the count
-  // doesn't work beacause it cache count because we haven't added it to the
-  // dependancy array
-  // const selectedItem = useMemo(() => items.find((item) => item.id === count), [items]); //wrong
-  // const selectedItem = useMemo(() => items.find((item) => item.id === count), [items, count]); //right
+  // doesn't work because it caches the count as we haven't added it to the
+  // dependancy array (so it just uses the old value)
+
+  // -- const selectedItem = useMemo(() => items.find((item) => item.id === count), [items]); //wrong
+  // -- const selectedItem = useMemo(() => items.find((item) => item.id === count), [items, count]); //right
 
   return (
     <div className='tutorial'>
